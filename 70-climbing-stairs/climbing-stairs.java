@@ -30,12 +30,21 @@ class Solution {
         {
             return 1;
         }
-        int[] d=new int[n+1];
-        d[0]=d[1]=1;
-        for(int i=2;i<=n;i++)
+        // int[] d=new int[n+1];
+        // d[0]=d[1]=1;
+        // for(int i=2;i<=n;i++)
+        // {
+        //     d[i]=d[i-1]+d[i-2];
+        // }
+        // return d[n];
+        int i=1;
+        int j=1;
+        for(int k=2;k<=n;k++)
         {
-            d[i]=d[i-1]+d[i-2];
+            int temp=i+j;
+            i=j;
+            j=temp;
         }
-        return d[n];
+        return j;
     }
 }
