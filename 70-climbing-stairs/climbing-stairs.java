@@ -1,30 +1,41 @@
 class Solution {
-    int  back(int cur,int[] temp)
-    {
-        if(cur==0)
+    // int  back(int cur,int[] temp)
+    // {
+    //     if(cur==0)
+    //     {
+    //         return 1;
+    //     }
+    //     if(cur<0)
+    //     {
+    //         return 0;
+    //     }
+    //     if(temp[cur-1]!=-1)
+    //     {
+    //         return temp[cur-1];
+    //     }
+    //     int one=back(cur-1,temp);
+    //     int twostep=back(cur-2,temp);
+    //     temp[cur-1]=one+twostep;
+    //     return one +twostep;
+    // }
+    public int climbStairs(int n) {
+        // int[] temp =new int[n];
+        // for(int i=0;i<n;i++)
+        // {
+        //     temp[i]=-1;
+        // }
+        // int res=back(n, temp); 
+        // return res;
+        if(n==1 || n==0)
         {
             return 1;
         }
-        if(cur<0)
+        int[] d=new int[n+1];
+        d[0]=d[1]=1;
+        for(int i=2;i<=n;i++)
         {
-            return 0;
+            d[i]=d[i-1]+d[i-2];
         }
-        if(temp[cur-1]!=-1)
-        {
-            return temp[cur-1];
-        }
-        int one=back(cur-1,temp);
-        int twostep=back(cur-2,temp);
-        temp[cur-1]=one+twostep;
-        return one +twostep;
-    }
-    public int climbStairs(int n) {
-        int[] temp =new int[n];
-        for(int i=0;i<n;i++)
-        {
-            temp[i]=-1;
-        }
-        int res=back(n, temp); 
-        return res;
+        return d[n];
     }
 }
