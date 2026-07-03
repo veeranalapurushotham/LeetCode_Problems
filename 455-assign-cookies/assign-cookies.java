@@ -4,21 +4,16 @@ class Solution {
         Arrays.sort(s);
         int i=0;
         int j=0;
-        int cnt=0;
-        while(i<g.length && j<s.length)
+        int m=g.length;
+        int l=s.length;
+        while(i<m && j<l)
         {
             if(g[i]<=s[j])
             {
-                cnt++;
                 i++;
-                j++;
             }
-            else
-            {
-                j++;
-            }
-            
+            j++;
         }
-        return cnt;
+        return i;
     }
 }
