@@ -14,19 +14,17 @@
  * }
  */
 class Solution {
-    int count=0;
-    void tre(TreeNode root)
+   
+    int tre(TreeNode root)
     {
-        if(root!=null)
+        if(root==null)
         {
-            count++;
-            tre(root.left);
-            tre(root.right);
+            return 0;
         }
-        
+        return 1+tre(root.left)+tre(root.right);
     }
     public int countNodes(TreeNode root) {
-        tre(root);
-        return count;
+        int res=tre(root);
+        return res;
     }
 }
