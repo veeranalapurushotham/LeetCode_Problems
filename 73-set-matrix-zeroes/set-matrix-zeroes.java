@@ -1,25 +1,25 @@
 class Solution {
     public void setZeroes(int[][] matrix) {
-        int rl=matrix.length;
-        int cl=matrix[0].length;
-        int[] row=new int[rl];
-        int[] col=new int[cl];
+        int r=matrix.length;
+        int c=matrix[0].length;
+        int[] row=new int[r];
+        int[] col=new int[c];
         Arrays.fill(row,1);
         Arrays.fill(col,1);
-        for(int i=0;i<rl;i++)
+        for(int i=0;i<r;i++)
         {
-            for(int j=0;j<cl;j++)
+            for(int j=0;j<c;j++)
             {
                 if(matrix[i][j]==0)
                 {
                     row[i]=0;
                     col[j]=0;
-                }                
+                }
             }
         }
-        for(int i=0;i<rl;i++)
+        for(int i=0;i<r;i++)
         {
-            for(int j=0;j<cl;j++)
+            for(int j=0;j<c;j++)
             {
                 if(row[i]==0 || col[j]==0)
                 {
@@ -27,5 +27,6 @@ class Solution {
                 }
             }
         }
+
     }
 }
