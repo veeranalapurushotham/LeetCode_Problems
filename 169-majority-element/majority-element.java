@@ -3,18 +3,13 @@ class Solution {
         HashMap<Integer,Integer> fre= new HashMap<>();
         for(int i: nums)
         {
-            fre.put(i,fre.getOrDefault(i,0)+1);
-        }
-        int res=0;
-        int value=0;
-        for(Map.Entry<Integer,Integer> ent: fre.entrySet())
-        {
-            if(ent.getValue()>value)
+            int curr=fre.getOrDefault(i,0)+1;
+            fre.put(i,curr);
+            if(curr>(nums.length)/2)
             {
-                res=ent.getKey();
-                value=ent.getValue();
+                return i;
             }
         }
-        return res;
+        return 0;
     }
 }
